@@ -1,11 +1,12 @@
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCev2KS710mNeNrEiUKA57smUjhSMtycds",
-    authDomain: "raleighpoker-ce845.firebaseapp.com",
-    databaseURL: "https://raleighpoker-ce845.firebaseio.com",
-    projectId: "raleighpoker-ce845",
-    storageBucket: "raleighpoker-ce845.appspot.com",
-    messagingSenderId: "972429569717"
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDLzUT4UfZkHRCLTkxvaGN9ugOI7XIuoJg",
+    authDomain: "inclass0531.firebaseapp.com",
+    databaseURL: "https://inclass0531.firebaseio.com",
+    projectId: "inclass0531",
+    storageBucket: "",
+    messagingSenderId: "145760898899"
   };
 
   firebase.initializeApp(config);
@@ -13,16 +14,25 @@
 
 var database = firebase.database();
 
-//collect data from user
 
+//collect data from user
 var userFirstName = "";
-var lastName = "";
-var email = "";
+var userlastName = "";
+var useremail = "";
 
 $("#submitButton").on("click", function (event) {
+
     event.preventDefault();
 
     userFirstName = $("#firstName").val().trim();
-    console.log(userFirstName);
+    userlastName = $("#lastName").val().trim();
+    useremail = $("#email").val().trim();
 
+    var temp = {
+        first_name: userFirstName,
+        last_name: userlastName,
+        user_email: useremail
+    }
+
+    database.ref().push(temp);
 });
