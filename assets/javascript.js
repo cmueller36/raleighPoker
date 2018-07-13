@@ -36,40 +36,10 @@ $("#submitButton").on("click", function (event) {
 
     database.ref().push(temp);
 
-    // Storing our giphy API URL for a random cat image
-    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
-
-    // Perfoming an AJAX GET request to our queryURL
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-
-    // After the data from the AJAX request comes back
-      .then(function(response) {
-          console.log(response);
-
-      // Saving the image_original_url property
-        var imageUrl = response.data.image_original_url;
-
-        // Creating and storing an image tag
-        var catImage = $("<img>");
-
-        // Setting the catImage src attribute to imageUrl
-        catImage.attr("src", imageUrl);
-        catImage.attr("alt", "cat image");
-
-        // Prepending the catImage to the images div
-        $("#images").prepend(catImage);
-      });
-
-    
 });
 
 //grab the added information
 database.ref().on("child_added", function (childSnaphot) {
-    console.log(childSnaphot.val().first_name);
-    console.log(childSnaphot.val().last_name);
 
     //add new rows to table
     $("#tablebody").append($("<tr><td>"
@@ -78,3 +48,32 @@ database.ref().on("child_added", function (childSnaphot) {
     +"</td></tr>"))
   
   });
+
+//   //gify image
+//   // Storing our giphy API URL for a random cat image
+//   var imageSearch = "poker"
+//   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag="+imageSearch;
+
+//   // Perfoming an AJAX GET request to our queryURL
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET"
+//   })
+
+//   // After the data from the AJAX request comes back
+//     .then(function(response) {
+//         console.log(response);
+
+//     // Saving the image_original_url property
+//       var imageUrl = response.data.image_original_url;
+
+//       // Creating and storing an image tag
+//       var catImage = $("<img>");
+
+//       // Setting the catImage src attribute to imageUrl
+//       catImage.attr("src", imageUrl);
+//       catImage.attr("alt", "poker image");
+
+//       // Prepending the catImage to the images div
+//       $("#images").prepend(catImage);
+//     });
