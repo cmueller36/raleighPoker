@@ -45,35 +45,62 @@
                     <!--email for user-->
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="email" placeholder="poker@poker.com">
                     </div>
 
-                    <button id="submitButton" type="button" class="btn btn-primary">Submit</button>
+                    <button id="submitButton" type="button" class="btn btn-danger">Submit</button>
 
                 </form>
             </div>
 
             <!--poker information-->
             <div class="col-md-6">
+                <iframe id="mygiphy" src="https://giphy.com/embed/ClhVz6L3tnple" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+                <!--header information-->
+                <h3>Raleigh Poker Club</h3>
+                <br>
+                <h6>Welcome to the Raleigh Poker Club</h6>
+                <br>
+                <p>This is a fun meet up for poker players from beginner to advanced. Our first tournament will be in a couple weeks. No 
+                    official date has been set yet but it is on its way!
+                </p>
 
             </div>
 
-            <!--people who have signed up-->
+            <!--list of people who have signed up-->
             <div class="col-md-3">
+                <div id="signedList" class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h6 class="card-title">Current Players</h6>
 
+                        <!--table for displaying players-->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebody">
+                                <!-- example of what a <tr> should look like -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
 
+
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
-<!--link to assets javascript-->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+<!--link to assets javascript-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
