@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Raleigh Poker Club</title>
+    <title>Sign In</title>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <!--link to BootStrap style sheet-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
@@ -14,99 +16,21 @@
         crossorigin="anonymous">
     <!--link to style sheet-->
     <link rel="stylesheet" type="text/css" href="assets/style.css" />
-
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <!--Header-->
-            <div id="header" class="col-md-12">
-                <h1>Raleigh Poker Club</h1>
-            </div>
-        </div>
-
-        <div class="row">
-            <!--sign up information-->
-            <div class="col-md-3">
-                <!--sign up header-->
-                <h3 id="signUp">Sign Up Now!</h3>
-                <form id="signUpForm">
-                    <!--first name input-->
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
-                    </div>
-                    <!--last name input-->
-                    <div class="form-group">
-                        <label for="lastName">First Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-                    </div>
-                    <!--email for user-->
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="poker@poker.com">
-                    </div>
-
-                    <button id="submitButton" type="button" class="btn btn-danger">Submit</button>
-
-                </form>
-            </div>
-
-            <!--poker information-->
-            <div class="col-md-6">
-                <iframe id="mygiphy" src="https://giphy.com/embed/ClhVz6L3tnple" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-
-                <!--header information-->
-                <h3>Raleigh Poker Club</h3>
-                <br>
-                <h6>Welcome to the Raleigh Poker Club</h6>
-                <br>
-                <p>This is a fun meet up for poker players from beginner to advanced. Our first tournament will be in a couple weeks. No 
-                    official date has been set yet but it is on its way!
-                </p>
-
-            </div>
-
-            <!--list of people who have signed up-->
-            <div class="col-md-3">
-                <div id="signedList" class="card" style="width: 100%;">
-                    <div class="card-body">
-                        <h6 class="card-title">Current Players</h6>
-
-                        <!--table for displaying players-->
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tablebody">
-                                <!-- example of what a <tr> should look like -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
+    <div class="" <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-
 
 <!--link to assets javascript-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
-
-<script src="assets/javascript.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script src="assets/signin.js"></script>
 
 </html>
