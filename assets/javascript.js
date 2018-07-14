@@ -1,4 +1,3 @@
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDLzUT4UfZkHRCLTkxvaGN9ugOI7XIuoJg",
@@ -7,54 +6,33 @@ var config = {
     projectId: "inclass0531",
     storageBucket: "",
     messagingSenderId: "145760898899"
-  };
+};
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 
 var database = firebase.database();
 
-// Initialize the FirebaseUI Widget using Firebase.
+// Initialize the FirebaseUI Widget using Firebase.  
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
+// FirebaseUI config.
 var uiConfig = {
-    callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            // User successfully signed in.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            return true;
-        },
-        uiShown: function () {
-            // The widget is rendered.
-            // Hide the loader.
-            document.getElementById('loader').style.display = 'none';
-        }
-    },
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    signInFlow: 'popup',
-    signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInSuccessUrl: "./views/landingpage.html",
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.PhoneAuthProvider.PROVIDER_ID
     ],
-    // Terms of service url.
-    tosUrl: '<your-tos-url>'
 };
 
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
 
-
-//collect data from user
 var userFirstName = "";
 var userlastName = "";
 var useremail = "";
+
+
 
 $("#submitButton").on("click", function (event) {
 
@@ -78,38 +56,39 @@ $("#submitButton").on("click", function (event) {
 database.ref().on("child_added", function (childSnaphot) {
 
     //add new rows to table
-    $("#tablebody").append($("<tr><td>"
-    +childSnaphot.val().first_name+"</td><td>"
-    +childSnaphot.val().last_name
-    +"</td></tr>"))
-  
-  });
+    $("#tablebody").append($("<tr><td>" +
+        childSnaphot.val().first_name + "</td><td>" +
+        childSnaphot.val().last_name +
+        "</td></tr>"))
 
-//   //gify image
-//   // Storing our giphy API URL for a random cat image
-//   var imageSearch = "poker"
-//   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag="+imageSearch;
+});
 
-//   // Perfoming an AJAX GET request to our queryURL
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   })
 
-//   // After the data from the AJAX request comes back
-//     .then(function(response) {
-//         console.log(response);
-
-//     // Saving the image_original_url property
-//       var imageUrl = response.data.image_original_url;
-
-//       // Creating and storing an image tag
-//       var catImage = $("<img>");
-
-//       // Setting the catImage src attribute to imageUrl
-//       catImage.attr("src", imageUrl);
-//       catImage.attr("alt", "poker image");
-
-//       // Prepending the catImage to the images div
-//       $("#images").prepend(catImage);
-//     });
+function handleSignUp() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (email.length < 4) {
+      alert('Please enter an email address.');
+      return;
+    }
+    if (password.length < 4) {
+      alert('Please enter a password.');
+      return;
+    }
+    // Sign in with email and pass.
+    // [START createwithemail]
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+    // [END createwithemail]
+  }

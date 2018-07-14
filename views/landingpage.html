@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Raleigh Poker Club</title>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <!--link to BootStrap style sheet-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
@@ -13,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <!--link to style sheet-->
-    <link rel="stylesheet" type="text/css" href="assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
 
 </head>
 
@@ -23,6 +25,7 @@
             <!--Header-->
             <div id="header" class="col-md-12">
                 <h1>Raleigh Poker Club</h1>
+                <div id="firebaseui-auth-container"></div>
             </div>
         </div>
 
@@ -62,8 +65,8 @@
                 <br>
                 <h6>Welcome to the Raleigh Poker Club</h6>
                 <br>
-                <p>This is a fun meet up for poker players from beginner to advanced. Our first tournament will be in a couple weeks. No 
-                    official date has been set yet but it is on its way!
+                <p>This is a fun meet up for poker players from beginner to advanced. Our first tournament will be in a couple
+                    weeks. No official date has been set yet but it is on its way!
                 </p>
 
             </div>
@@ -96,6 +99,10 @@
 
 
 </body>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
@@ -107,6 +114,10 @@
     crossorigin="anonymous"></script>
 
 
-<script src="assets/javascript.js"></script>
+<script src="../assets/javascript.js"></script>
+
+<script>
+    $("#firebaseui-auth-container").hide();
+</script>
 
 </html>
