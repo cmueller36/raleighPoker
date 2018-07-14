@@ -38,17 +38,19 @@ $("#submitButton").on("click", function (event) {
 
     event.preventDefault();
 
-    userFirstName = $("#firstName").val().trim();
-    userlastName = $("#lastName").val().trim();
-    useremail = $("#email").val().trim();
+    handleSignUp();
 
-    var temp = {
-        first_name: userFirstName,
-        last_name: userlastName,
-        user_email: useremail
-    }
+    // userFirstName = $("#firstName").val().trim();
+    // userlastName = $("#lastName").val().trim();
+    // useremail = $("#email").val().trim();
 
-    database.ref().push(temp);
+    // var temp = {
+    //     first_name: userFirstName,
+    //     last_name: userlastName,
+    //     user_email: useremail
+    // }
+
+    // database.ref().push(temp);
 
 });
 
@@ -63,7 +65,7 @@ database.ref().on("child_added", function (childSnaphot) {
 
 });
 
-
+//SignUp new user
 function handleSignUp() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
