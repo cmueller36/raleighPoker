@@ -31,6 +31,8 @@ ui.start('#firebaseui-auth-container', uiConfig);
 var userFirstName = "";
 var userlastName = "";
 var useremail = "";
+var userid = "";
+var userbuyin = "";
 
 
 
@@ -40,17 +42,21 @@ $("#submitButton").on("click", function (event) {
 
     handleSignUp();
 
-    // userFirstName = $("#firstName").val().trim();
-    // userlastName = $("#lastName").val().trim();
-    // useremail = $("#email").val().trim();
+    userFirstName = $("#firstName").val().trim();
+    userlastName = $("#lastName").val().trim();
+    useremail = $("#email").val().trim();
+    userbuyin = $("#inputGroupSelect01").val().trim();
 
-    // var temp = {
-    //     first_name: userFirstName,
-    //     last_name: userlastName,
-    //     user_email: useremail
-    // }
+    var temp = {
+        first_name: userFirstName,
+        last_name: userlastName,
+        user_email: useremail,
+        buyIn: userbuyin
+    }
 
-    // database.ref().push(temp);
+    database.ref().push(temp);
+
+    window.location = '../index.html';
 
 });
 
@@ -69,28 +75,29 @@ database.ref().on("child_added", function (childSnaphot) {
 function handleSignUp() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+
     if (email.length < 4) {
-      alert('Please enter an email address.');
-      return;
+        alert('Please enter an email address.');
+        return;
     }
     if (password.length < 4) {
-      alert('Please enter a password.');
-      return;
+        alert('Please enter a password.');
+        return;
     }
     // Sign in with email and pass.
     // [START createwithemail]
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // [START_EXCLUDE]
-      if (errorCode == 'auth/weak-password') {
-        alert('The password is too weak.');
-      } else {
-        alert(errorMessage);
-      }
-      console.log(error);
-      // [END_EXCLUDE]
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+            alert('The password is too weak.');
+        } else {
+            alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
     });
     // [END createwithemail]
-  }
+}

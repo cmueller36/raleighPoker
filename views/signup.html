@@ -12,9 +12,13 @@
     <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+
+
 </head>
 
-<body>
+<body id="signuppage">
 
     <div class="container">
         <div class="row">
@@ -29,7 +33,7 @@
                     </div>
                     <!--last name input-->
                     <div class="form-group">
-                        <label for="lastName">First Name</label>
+                        <label for="lastName">Last Name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="Last Name">
                     </div>
                     <!--email for user-->
@@ -40,12 +44,25 @@
                     <!--password for user-->
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Password</label>
-                        <input type="text" class="form-control" id="password" placeholder="password">
+                        <input type="password" class="form-control" id="password" placeholder="password">
                     </div>
 
-                    <button id="submitButton" type="button" class="btn btn-danger">Submit</button>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Buy in</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...$</option>
+                            <option value="20-50">20-50</option>
+                            <option value="50-100">50-100</option>
+                            <option value="100+">100+</option>
+                        </select>
+                    </div>
+
+                    <button id="submitButton" type="button" class="btn btn-danger">Submit</button>   <a href="../index.html">Cancel</a>
 
                 </form>
+
             </div>
         </div>
     </div>
